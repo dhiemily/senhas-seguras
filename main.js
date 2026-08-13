@@ -1,19 +1,19 @@
 // CONFIGURAÇÕES E SELEÇÃO DE ELEMENTOS DO HTML
-const numeroSenha = document.querySelector(&#39;.parametro-senha__texto&#39;);
+const numeroSenha = document.querySelector('.parametro-senha__texto');
 let tamanhoSenha = 12; // Define o tamanho padrão inicial da senha
 numeroSenha.textContent = tamanhoSenha;
 
 // CONJUNTOS DE CARACTERES DISPONÍVEIS PARA A SENHA
-const letrasMaiusculas = &#39;ABCDEFGHIJKLMNOPQRSTUVXYWZ&#39;;
-const letrasMinusculas = &#39;abcdefghijklmnopqrstuvxywz&#39;;
-const numeros = &#39;0123456789&#39;;
-const simbolos = &#39;!@%*?&#39;;
+const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
+const letrasMinusculas = 'abcdefghijklmnopqrstuvxywz';
+const numeros = '0123456789';
+const simbolos = '!@%*?';
 
 // SELEÇÃO DOS BOTÕES, CHECKBOXES E CAMPOS DE EXIBIÇÃO
-const botoes = document.querySelectorAll(&#39;.parametro-senha__botao&#39;);
-const campoSenha = document.querySelector(&#39;#campo-senha&#39;);
-const checkbox = document.querySelectorAll(&#39;.checkbox&#39;);
-const forcaSenha = document.querySelector(&#39;.forca&#39;);
+const botoes = document.querySelectorAll('.parametro-senha__botao');
+const campoSenha = document.querySelector('#campo-senha');
+const checkbox = document.querySelectorAll('.checkbox');
+const forcaSenha = document.querySelector('.forca');
 
 // CONFIGURAÇÃO DOS EVENTOS DE CLIQUE PARA OS BOTÕES DE TAMANHO
 botoes[0].onclick = diminuiTamanho;
@@ -21,7 +21,7 @@ botoes[1].onclick = aumentaTamanho;
 
 // FUNÇÃO PARA REDUZIR O TAMANHO DA SENHA NO BOTÃO [-]
 function diminuiTamanho() {
-if (tamanhoSenha &gt; 1) {
+if (tamanhoSenha > 1) {
 tamanhoSenha--;
 }
 numeroSenha.textContent = tamanhoSenha;
@@ -30,7 +30,7 @@ geraSenha();
 
 // FUNÇÃO PARA AUMENTAR O TAMANHO DA SENHA NO BOTÃO [+]
 function aumentaTamanho() {
-if (tamanhoSenha &lt; 20) {
+if (tamanhoSenha < 20) {
 tamanhoSenha++;
 
 }
@@ -39,7 +39,7 @@ geraSenha();
 }
 
 // MONITOR DE CLIQUES NOS CHECKBOXES PARA REGENERAR A SENHA AUTOMATICAMENTE
-for (let i = 0; i &lt; checkbox.length; i++) {
+for (let i = 0; i < checkbox.length; i++) {
 checkbox[i].onclick = geraSenha;
 }
 
@@ -48,7 +48,7 @@ geraSenha();
 
 // FUNÇÃO PRINCIPAL QUE CRIA E MONTA A SENHA ALEATÓRIA
 function geraSenha() {
-let alfabeto = &#39;&#39;;
+let alfabeto = '';
 if (checkbox[0].checked) {
 alfabeto = alfabeto + letrasMaiusculas;
 }
@@ -61,8 +61,8 @@ alfabeto = alfabeto + numeros;
 if (checkbox[3].checked) {
 alfabeto = codebase = alfabeto + simbolos;
 }
-let senha = &#39;&#39;;
-for (let i = 0; i &lt; tamanhoSenha; i++) {
+let senha = '';
+for (let i = 0; i < tamanhoSenha; i++) {
 let numeroAleatorio = Math.random() * alfabeto.length;
 numeroAleatorio = Math.floor(numeroAleatorio);
 senha = senha + alfabeto[numeroAleatorio];
@@ -76,15 +76,15 @@ classificaSenha(alfabeto.length);
 function classificaSenha(tamanhoAlfabeto) {
 let entropia = tamanhoSenha * Math.log2(tamanhoAlfabeto);
 console.log(entropia);
-forcaSenha.classList.remove(&#39;fraca&#39;, &#39;media&#39;, &#39;forte&#39;);
-if (entropia &gt; 57) {
-forcaSenha.classList.add(&#39;forte&#39;);
-} else if (entropia &gt; 35 &amp;&amp; entropia &lt; 57) {
-forcaSenha.classList.add(&#39;media&#39;);
-} else if (entropia &lt;= 35) {
-forcaSenha.classList.add(&#39;fraca&#39;);
+forcaSenha.classList.remove('fraca', 'media', 'forte');
+if (entropia > 57) {
+forcaSenha.classList.add('forte');
+} else if (entropia > 35 && entropia < 57) {
+forcaSenha.classList.add('media');
+} else if (entropia <= 35) {
+forcaSenha.classList.add('fraca');
 }
-const valorEntropia = document.querySelector(&#39;.entropia&#39;);
-valorEntropia.textContent = &quot;Um computador pode levar até &quot; + Math.floor(2 ** entropia / (100e6 * 60 * 60 * 24)) +
-&quot; dias para descobrir essa senha.&quot;;
+const valorEntropia = document.querySelector('.entropia');
+valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2 ** entropia / (100e6 * 60 * 60 * 24)) +
+" dias para descobrir essa senha.";
 }
