@@ -5,8 +5,8 @@
 :root {
 --branco: white; /* Cor do texto geral */
 --cor-de-fundo: #3b0101; /* Roxo escuro do fundo da página */
---fundo-senha: #740303; /* Roxo médio para o bloco do resultado da senha */
---fundo-texto: #740303; /* Roxo intermediário para o bloco de opções */
+--fundo-senha: #610000; /* Roxo médio para o bloco do resultado da senha */
+--fundo-texto: #610000; /* Roxo intermediário para o bloco de opções */
 --borda: #fd0404; /* Rosa neon/magenta para destacar bordas e botões */
 --roboto: 'Roboto', sans-serif; /* Fonte padrão para textos comuns */
 --roboto-mono: 'Roboto Mono', monospace; /* Fonte monoespaçada (letras com mesma largura) para códigos e
