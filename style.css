@@ -4,10 +4,10 @@
 /* Definição das variáveis globais do projeto (paleta de cores e tipografia) */
 :root {
 --branco: white; /* Cor do texto geral */
---cor-de-fundo: #15002e; /* Roxo escuro do fundo da página */
---fundo-senha: #33004d; /* Roxo médio para o bloco do resultado da senha */
---fundo-texto: #2c0040; /* Roxo intermediário para o bloco de opções */
---borda: #d304fd; /* Rosa neon/magenta para destacar bordas e botões */
+--cor-de-fundo: #3b0101; /* Roxo escuro do fundo da página */
+--fundo-senha: #740303; /* Roxo médio para o bloco do resultado da senha */
+--fundo-texto: #740303; /* Roxo intermediário para o bloco de opções */
+--borda: #fd0404; /* Rosa neon/magenta para destacar bordas e botões */
 --roboto: 'Roboto', sans-serif; /* Fonte padrão para textos comuns */
 --roboto-mono: 'Roboto Mono', monospace; /* Fonte monoespaçada (letras com mesma largura) para códigos e
 senhas */
